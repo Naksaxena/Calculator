@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Sacramento&display=swap"
+        rel="stylesheet">
+    <title>A basic Calculator</title>
+    <style>
+        .symbol {
+            text-align-last: center
+        }
+
+        body {
+            text-align: center;
+            font-family: 'Merriweather', serif;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: normal;
+        }
+    </style>
+
+</head>
+
+<body class="bg-info">
+    <h1 class="jumbotron jumbotron-light">A Calculator built using JavaScript.</h1>
+            <div class="d-flex align-items-center  justify-content-center">
+            <table class="table-dark table-bordered">
+                <tr>
+                    <td colspan="4">
+                        <input type="textbox" id="result" width='200px' value=0>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="symbols" id="AC"><button type="button"
+                            class="btn btn-outline-secondary btn-block">AC</button></td>
+                    <td class="symbols" id="open"><button type="button"
+                            class="btn btn-outline-secondary btn-block">(</button></td>
+                    <td class="symbols" id="close"><button type="button"
+                            class="btn btn-outline-secondary btn-block">)</button></td>
+                    <td class="symbols" id="div"><button type="button"
+                            class="btn btn-outline-secondary btn-block">/</button></td>
+                </tr>
+                <tr>
+                    <td class="symbols" id="num7"><button type="button"
+                            class="btn btn-outline-secondary btn-block">7</button></td>
+                    <td class="symbols" id="num8"><button type="button"
+                            class="btn btn-outline-secondary btn-block">8</button></td>
+                    <td class="symbols" id="num9"><button type="button"
+                            class="btn btn-outline-secondary btn-block">9</button></td>
+                    <td class="symbols" id="mul"><button type="button"
+                            class="btn btn-outline-secondary btn-block">*</button></td>
+                </tr>
+                <tr>
+                    <td class="symbols" id="num4"><button type="button"
+                            class="btn btn-outline-secondary btn-block">4</button></td>
+                    <td class="symbols" id="num5"><button type="button"
+                            class="btn btn-outline-secondary btn-block">5</button></td>
+                    <td class="symbols" id="num6"><button type="button"
+                            class="btn btn-outline-secondary btn-block">6</button></td>
+                    <td class="symbols" id="sub"><button type="button"
+                            class="btn btn-outline-secondary btn-block">-</button></td>
+                </tr>
+                <tr>
+                    <td class="symbols" id="num1"><button type="button"
+                            class="btn btn-outline-secondary btn-block">1</button></td>
+                    <td class="symbols" id="num2"><button type="button"
+                            class="btn btn-outline-secondary btn-block">2</button></td>
+                    <td class="symbols" id="num3"><button type="button"
+                            class="btn btn-outline-secondary btn-block">3</button></td>
+                    <td class="symbols" id="plus"><button type="button"
+                            class="btn btn-outline-secondary btn-block">+</button></td>
+                </tr>
+                <tr>
+                    <td class="symbols" id="num0" colspan=2><button type="button"
+                            class="btn btn-outline-secondary btn-block">0</button></td>
+                    <td class="symbols" id="decimal"><button type="button"
+                            class="btn btn-outline-secondary btn-block">.</button></td>
+                    <td id="equals"><button type="button" class="btn btn-outline-secondary btn-block">=</button></td>
+                </tr>
+            </table>
+        </div>
+
+    <script>
+
+        function printDigit(num) {
+            let result = document.getElementById("result");
+            let obj = num.target;
+
+            if (result.value == 0)
+                result.value = obj.textContent;
+            else
+                result.value = result.value + obj.textContent;
+        }
+        let result = document.getElementById("result");
+        let clear = document.getElementById("AC");
+        let equals = document.getElementById("equals");
+
+        let symbols = document.getElementsByClassName("symbols");
+
+        for (let i = 0; i < symbols.length; i++) {
+            symbols[i].addEventListener("click", printDigit);
+        }
+
+        clear.addEventListener("click", () => document.getElementById("result").value = 0);
+        equals.addEventListener("click", num => result.value = eval(result.value));
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+    <footer class="navbar fixed-bottom justify-content-center">
+        <div class="py-3">© 2020 Copyright:
+            <a href="https://www.linkedin.com/in/nakshatrasaxena/"> Nakshatra Saxena</a>
+        </div>
+    </footer>
+</body>
+
+</html>
